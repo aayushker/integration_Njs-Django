@@ -1,7 +1,8 @@
 #used to convert a complex data type to a native python data type so that it can be easily rendered into JSON format
 
 from rest_framework import serializers
-from .models import *
+from . models import *
+
 
 class ReactSerializer(serializers.ModelSerializer):
     class Meta:

@@ -1,22 +1,26 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
 from . models import *
-from . serializer import *
 from rest_framework.response import Response
+from . serializer import *
 # Create your views here.
 
+
 class ReactView(APIView):
+
+    serializer_class = ReactSerializer
+
     def get(self, request):
-        output = [{ 'employee': output.employee, 'department': output.department } for output in React.objects.all()]
+        output = [{"employee": output.employee, "department": output.department}
+                  for output in React.objects.all()]
         return Response(output)
 
     def post(self, request):
+
         serializer = ReactSerializer(data=request.data)
         if serializer.is_valid(raise_exception=True):
             serializer.save()
             return Response(serializer.data)
-        else:
-            return Response(serializer.errors)
 
 # This Python code is a Django REST Framework view that handles HTTP GET and POST requests for the React model. Here's a breakdown:
 # Imports: The necessary modules and classes are imported. This includes Django's render function, the APIView class from Django REST Framework, all models from the current directory (models.py), all serializers from the current directory (serializer.py), and the Response class from Django REST Framework.
