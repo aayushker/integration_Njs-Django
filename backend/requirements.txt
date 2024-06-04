@@ -3,3 +3,14 @@ Django==5.0.6
 django-cors-headers==4.3.1
 djangorestframework==3.15.1
 sqlparse==0.5.0
+
+# how to start the project
+# 1. clone the project
+# 2. create a virtual environment
+# 3. install the requirements
+# 4. run the server
+
+# pipenv shell
+# pipenv install -r requirements.txt
+# python manage.py migrate
+# python manage.py runserver
